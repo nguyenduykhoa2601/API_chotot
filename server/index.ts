@@ -39,7 +39,7 @@ app.use('/api', routes)
 app.get('/', (req, res) => {
   res.json({
     msg: 'API_SERVER',
-    'blogs-api': 'https://blog-dev-api.herokuapp.com/api/home/blogs'
+    'UIT_Chotot': 'Welcome To UIT chotot'
   })
 })
 
