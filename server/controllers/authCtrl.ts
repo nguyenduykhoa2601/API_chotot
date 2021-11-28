@@ -101,7 +101,6 @@ const authCtrl = {
     refreshToken: async (req: Request, res: Response) => {
         try {
             const rf_token = req.cookies.refreshtoken
-            console.log(req.cookies)
             if (!rf_token) return res.status(400).json({ msg: "Please login now!" })
 
             const decoded = <IDecodedToken>jwt.verify(rf_token, `${process.env.REFRESH_TOKEN_SECRET}`)
