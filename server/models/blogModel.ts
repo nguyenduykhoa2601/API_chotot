@@ -22,10 +22,15 @@ const blogSchema = new mongoose.Schema({
     minLength: 50,
     maxLength: 200
   },
+  thumbnail:{
+    type: String,
+    require: true
+  },
   price:{
     type: Number,
     require: true
   },
+  
   category: { type: mongoose.Types.ObjectId, ref: 'category' }
 }, {
   timestamps: true

@@ -18,7 +18,7 @@ const blogCtrl = {
     if(!req.user) return res.status(400).json({msg: "Invalid Authentication."})
 
     try {
-      const { title, content, description, price, category } = req.body
+      const { title, content, description,thumbnail, price, category } = req.body
 
       const newBlog = new Blogs({
         user: req.user._id,
