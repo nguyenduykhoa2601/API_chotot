@@ -21,29 +21,29 @@ const authCtrl = {
             const { name, account, password } = req.body
 
             const user = await Users.findOne({ account })
-            if (user) return res.status(400).json({ msg: 'Email or Phone number already exists.' })
+            if (user) return res.status(400).json({ msg: 'Account already exist' })
 
             const passwordHash = await bcrypt.hash(password, 12)
 
             const newUser = { name, account, password: passwordHash }
 
-            const active_token = generateActiveToken({ newUser })
+            if (!newUser) return res.status(400).json({ msg: "Invalid authentication." })
 
-            const url = `${CLIENT_URL}/active/${active_token}`
+            if (user) return res.status(400).json({ msg: "Account already exists." })
 
-            if (validateEmail(account)) {
-                sendMail(account, url, "Verify your email address")
-                return res.json({ msg: "Success! Please check your email." })
+            const new_user = new Users(newUser)
 
-            } else if (validPhone(account)) {
-                sendSms(account, url, "Verify your phone number")
-                return res.json({ msg: "Success! Please check phone." })
-            }
+            await new_user.save()
+
+            res.json({ msg: "Account has been created" })
+
 
         } catch (err: any) {
             return res.status(500).json({ msg: err.message })
         }
     },
+
+    //Case nay test
     activeAccount: async (req: Request, res: Response) => {
         try {
             const { active_token } = req.body
@@ -61,7 +61,7 @@ const authCtrl = {
 
             await new_user.save()
 
-            res.json({ msg: "Account has been activated!" })
+            res.json({ msg: "Success" })
 
         } catch (err: any) {
             return res.status(500).json({ msg: err.message })

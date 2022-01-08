@@ -1,15 +1,19 @@
 import authRouter from './authRouter'
 import userRouter from './userRouter'
-import categoryRouter from './categoryRouter'
-import blogRouter from './blogRouter'
-import commentRouter from './commentRouter'
+import categoryMedicineRouter from './categoryMedicineRouter'
+import diagonosisRouter from './diagnosisRouter'
+import categoryDiseaseModel from './categoryDiseaseRouter'
+import medicineRouter from './medicineRouter'
+import diseaseRouter from './diagnosisRouter'
 
 const routes = [
   authRouter,
   userRouter,
-  categoryRouter,
-  blogRouter,
-  commentRouter
+  categoryMedicineRouter,
+  categoryDiseaseModel,
+  diagonosisRouter,
+  medicineRouter,
+  diseaseRouter
 ]
 
 export default routes;

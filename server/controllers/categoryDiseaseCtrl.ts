@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import Categories from '../models/categoryModel'
-import Blogs from '../models/blogModel'
+import Categories from '../models/categoryDiseaseModel'
+import Blogs from '../models/diagnosisModel'
 import { IReqAuth } from '../config/interface'
 
 const categoryCtrl = {

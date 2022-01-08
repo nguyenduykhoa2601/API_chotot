@@ -39,7 +39,7 @@ app.use('/api', routes)
 app.get('/', (req, res) => {
   res.json({
     msg: 'API_SERVER',
-    'UIT_Chotot': 'Welcome To UIT chotot'
+    'Hospital_API': 'Welcome hospital_API'
   })
 })
 

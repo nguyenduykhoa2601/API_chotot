@@ -42,6 +42,38 @@ const userSchema = new mongoose.Schema({
     type:String,
     default: ''
   },
+  birthDay:{
+    type: Date,
+    default: ''
+  },
+  gender:{
+    type: Number,
+    default: 0
+  },
+  height:{
+    type: Number,
+    default: 0
+  },
+  weight:{
+    type: Number,
+    default: 0
+  },
+  lifeStyle:{
+    type: String,
+    default: ''
+  },
+  parent:{
+    type: Array,
+    default: []
+  },
+  diagnosis:{
+    type: Array,
+    default: []
+  },
+  diagnosisShared:{
+    type: Array,
+    default: []
+  },
   rf_token: { type: String, select: false }
 }, {
   timestamps: true
