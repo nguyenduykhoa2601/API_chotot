@@ -7,16 +7,25 @@ const medicineCtrl = {
 	createMedicine: async (req: IReqAuth, res: Response) => {
 		if (!req.user || req.user.role !== "admin")
 			return res.status(400).json({ msg: "Invalid Authentication." });
-		try {
-			const { name, description, category, producer, ingredient } = req.body;
-			if (!category) {
-				return res.status(400).json({ msg: "Medicine must be have category" });
-			}
-            const id = category
-			const isExistCategory = await Categories.findById(id);
-			if (!isExistCategory?._id)
-				return res.status(400).json({ msg: "Cant not find any category!" });
 
+		const { name, description, category, producer, ingredient } = req.body;
+		if (!category) {
+			return res.status(400).json({ msg: "Medicine must be have category" });
+		}
+
+		const listMedicineCategory = await Categories.find();
+		if (
+			category.length !== listMedicineCategory[0]._id.toString().length ||
+			listMedicineCategory.length === 0
+		) {
+			return res.status(400).json({ msg: "Cant not find any category!" });
+		}
+
+		const isExistCategory = await Categories.findById(category);
+		if (!isExistCategory?._id)
+			return res.status(400).json({ msg: "Cant not find any category!" });
+
+		try {
 			const newMedicine = new Medicines({
 				name,
 				description,

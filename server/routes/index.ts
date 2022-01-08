@@ -4,7 +4,7 @@ import categoryMedicineRouter from './categoryMedicineRouter'
 import diagonosisRouter from './diagnosisRouter'
 import categoryDiseaseModel from './categoryDiseaseRouter'
 import medicineRouter from './medicineRouter'
-import diseaseRouter from './diagnosisRouter'
+import diseaseRouter from './diseaseRouter'
 
 const routes = [
   authRouter,

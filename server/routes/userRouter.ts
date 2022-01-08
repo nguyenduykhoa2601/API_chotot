@@ -4,7 +4,7 @@ import userCtrl from "../controllers/userCtrl";
 
 const router = express.Router();
 
-router.patch("/user", userCtrl.updateUser);
+router.put("/user", auth, userCtrl.updateUser);
 
 router.patch("/reset_password", auth, userCtrl.resetPassword);
 
