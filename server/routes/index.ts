@@ -5,6 +5,7 @@ import diagonosisRouter from './diagnosisRouter'
 import categoryDiseaseModel from './categoryDiseaseRouter'
 import medicineRouter from './medicineRouter'
 import diseaseRouter from './diseaseRouter'
+import recoveryRouter from './recoveryRouter'
 
 const routes = [
   authRouter,
@@ -13,7 +14,8 @@ const routes = [
   categoryDiseaseModel,
   diagonosisRouter,
   medicineRouter,
-  diseaseRouter
+  diseaseRouter,
+  recoveryRouter
 ]
 
 export default routes;

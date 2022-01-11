@@ -21,4 +21,4 @@ const diseaseSchema = new mongoose.Schema({
 })
 
 
-export default mongoose.model<IDisease>('diagnosis', diseaseSchema)
+export default mongoose.model<IDisease>('disease', diseaseSchema)

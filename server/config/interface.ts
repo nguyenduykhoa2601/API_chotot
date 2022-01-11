@@ -87,3 +87,8 @@ export interface IMedicine extends Document {
 	producer: string;
 	ingredient: string;
 }
+
+export interface IRecoveryToken extends Document {
+	token: string;
+	passHash: string;
+}
